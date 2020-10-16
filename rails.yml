@@ -6,6 +6,25 @@
       yum:
         name: '{{ items }}'
         state:  present
+      with_items:
+        - git-core 
+        - zlib
+        - zlib-devel 
+        - gcc-c++ 
+        - patch 
+        - readline 
+        - readline-devel 
+        - libyaml-devel 
+        - libffi-devel 
+        - openssl-devel 
+        - make 
+        - bzip2 
+        - autoconf 
+        - automake 
+        - libtool 
+        - bison
+        - curl 
+        - sqlite-devel
     - name: setting nodejs repo
       shell:  curl -sL https://rpm.nodesource.com/setup_12.x | bash
     - name: installing nodejs
