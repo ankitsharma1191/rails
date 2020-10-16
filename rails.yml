@@ -37,7 +37,7 @@
         name: nodejs
         state:  present
     - name: setiing yarn repos
-      shell:  curl -sL https://rpm.nodesource.com/setup_12.x | bash
+      shell:  curl -sL https://dl.yarnpkg.com/rpm/yarn.repo -o /etc/yum.repos.d/yarn.repo
     - name: installing yarn
       yum:
         name: yarn
