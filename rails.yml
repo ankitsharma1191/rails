@@ -1,0 +1,31 @@
+---
+- name: this script will setup rails atutomatically
+  hosts:  localhost
+  tasks:
+    - name: install require packages
+      yum:
+        name: '{{ items }}'
+        state:  present
+    - name: setting nodejs repo
+      shell:  curl -sL https://rpm.nodesource.com/setup_12.x | bash
+    - name: installing nodejs
+      yum:
+        name: nodejs
+        state:  present
+    - name: setiing yarn repos
+      shell:  curl -sL https://rpm.nodesource.com/setup_12.x | bash
+    - name: installing yarn
+      yum:
+        name: yarn
+        state:  present
+    - name: setting rbenv enviornment though shell 
+      shell:  sh rbenv.sh
+    - name: installing rbenv
+      shell:  rbenv install 2.7.0
+      shell:  rbenv global 2.7.0
+    - name: running gem bundler
+      shell:  gem install bundler
+    - name: installing rails
+      shell:  gem install rails
+
+
