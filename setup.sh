@@ -12,11 +12,9 @@ if [ $? -eq 0 ]
   then  
     yum install git
     yum install epel-release -y && yum install ansible -y
-    yum clone https://github.com/ankitsharma1191/rails
     
     if  [ $? -eq 0 ]
       then
-        cd rails
          ansible-playbook rails.yml
        else
        exit 0
