@@ -1,24 +1,8 @@
-## Author: Ankit Sharma
-## Date: 17-10-2020
-## this script will setup rails 
-## to run this script allow execute permission on setup.sh script
-echo "Please Enter your Ip"
-read $ip
-echo "please enter your Hostname"
-read $host
-echo "$ip $host"
+t clone https://github.com/rbenv/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+exec $SHELL
 
-if [ $? -eq 0 ]
-  then  
-    yum install git
-    yum install epel-release -y && yum install ansible -y
-    yum clone https://github.com/ankitsharma1191/rails
-    
-    if  [ $? -eq 0 ]
-      then
-        cd rails
-         ansible-playbook rails.yml
-       else
-       exit 0
-     fi
-fi
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+exec $SHELL
